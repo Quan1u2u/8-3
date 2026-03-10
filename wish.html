@@ -10,91 +10,90 @@ body{
     font-family: Arial;
     margin:0;
     height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     background-size:cover;
     background-position:center;
 }
 
-/* container chính */
+/* layout bình thường */
 
 .container{
-
     display:flex;
     align-items:center;
     gap:50px;
-
     background:rgba(255,255,255,0.9);
     padding:40px;
-
     border-radius:20px;
-
     box-shadow:0 10px 30px rgba(0,0,0,0.25);
-
 }
 
-/* box lời chúc */
-
 .text-box{
-
     max-width:400px;
 }
 
-.text-box h1{
-
-    margin-bottom:20px;
-}
-
 .message{
-
     font-size:18px;
     line-height:1.6;
 }
 
-/* ảnh */
-
 .avatar{
-
     width:260px;
     height:320px;
-
     object-fit:cover;
-
     border-radius:20px;
-
     box-shadow:0 10px 25px rgba(0,0,0,0.3);
-
     transition:0.3s;
-
 }
 
 .avatar:hover{
-
     transform:scale(1.05);
+}
 
+/* layout riêng cho tập thể */
+
+.group-container{
+    width:700px;
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    padding:30px;
+    text-align:center;
+}
+
+.group-img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:25px;
+}
+
+.group-msg{
+    font-size:18px;
+    line-height:1.6;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="text-box">
-
-<h1>💐 Chúc mừng 8/3</h1>
-
-<div class="message" id="msg"></div>
-
+<!-- layout bình thường -->
+<div class="container" id="normal">
+    <div class="text-box">
+        <h1>💐 Chúc mừng 8/3</h1>
+        <div class="message" id="msg"></div>
+    </div>
+    <img id="img" class="avatar">
 </div>
 
-<img id="img" class="avatar">
-
+<!-- layout tập thể -->
+<div class="group-container" id="group" style="display:none">
+    <h1>🌸 Chúc mừng 8/3 - 10 Tin 🌸</h1>
+    <img id="group-img" class="group-img">
+    <div id="group-msg" class="group-msg"></div>
 </div>
 
 <script>
@@ -103,43 +102,19 @@ const data = {
 
 "Khánh An":{
 img:"img/kan.jpg",
-msg:"Chúc Khánh An – 'hót gơ 10 Tin' – luôn giữ được nụ cười rạng rỡ và năng lượng tích cực của mình. Mong rằng mỗi ngày của m đều đầy niềm vui, nhiều trải nghiệm thú vị và thật nhiều khoảnh khắc đáng nhớ. Chúc m có một ngày 8/3 thật xinh đẹp và rực rỡ như chính m 💐",
+msg:"Chúc Khánh An luôn rạng rỡ và tràn đầy năng lượng. Chúc m có một ngày 8/3 thật xinh đẹp 💐",
 bg:"img/bg2.png"
 },
 
 "Phương Quỳnh":{
 img:"img/pq.jpg",
-msg:"Chúc Phương Quỳnh – 'bà hoàng bi lắc' – lúc nào cũng tràn đầy năng lượng và tinh thần chiến thắng như khi đứng trước bàn bi lắc. Mong rằng m sẽ luôn tự tin, vui vẻ và đạt được thật nhiều thành công trong những điều mình theo đuổi. Chúc m 8/3 thật vui và thật nhiều tiếng cười 🌸",
-bg:"img/bg2.png"
-},
-
-"Phương Nguyên":{
-img:"img/pn.jpg",
-msg:"Chúc Phương Nguyên – 'C.anh' – luôn giữ được sự dễ thương, vui vẻ và nguồn năng lượng tích cực của mình. Mong rằng mỗi ngày của m đều có thêm nhiều điều thú vị, nhiều kỷ niệm đẹp và những niềm vui nhỏ bé nhưng đáng nhớ. Chúc m một ngày 8/3 thật hạnh phúc 🌷",
-bg:"img/bg2.png"
-},
-
-"Minh Thư":{
-img:"img/mt.jpg",
-msg:"Chúc Minh Thư – 'Tcon 10 năm' – luôn rạng rỡ, tự tin và tràn đầy năng lượng trong mọi việc mình làm. Mong rằng m sẽ luôn gặp nhiều may mắn, nhiều cơ hội tốt và thật nhiều niềm vui trong cuộc sống. Chúc m một ngày 8/3 thật đặc biệt và đáng nhớ 🌷",
-bg:"img/bg2.png"
-},
-
-"Lam Ngọc":{
-img:"img/ln.jpg",
-msg:"Chúc Lam Ngọc – 'Lyna' – luôn xinh đẹp, tự tin và tỏa sáng theo cách riêng của mình. Mong rằng m sẽ luôn giữ được tinh thần tích cực, gặp nhiều may mắn và đạt được thật nhiều điều mình mong muốn. Chúc m một ngày 8/3 thật vui và tràn đầy năng lượng 🌸",
-bg:"img/bg2.png"
-},
-
-"Bảo Hân":{
-img:"img/bhan.jpg",
-msg:"Chúc Bảo Hân – 'lò vi sóng' – lúc nào cũng mang lại sự ấm áp, vui vẻ và năng lượng tích cực cho mọi người xung quanh. Mong rằng mỗi ngày của m đều có thật nhiều niềm vui, nhiều tiếng cười và những điều tốt đẹp. Chúc m một ngày 8/3 thật tuyệt vời 💐",
+msg:"Chúc Phương Quỳnh luôn vui vẻ, tự tin và đạt nhiều thành công 🌸",
 bg:"img/bg2.png"
 },
 
 "Tập thể":{
 img:"img/tapthe.jpg",
-msg:"Chúc các bạn một ngày 8/3 thật vui vẻ, luôn xinh đẹp, tự tin và tràn đầy năng lượng. Mong rằng mỗi ngày của các bạn đều có thật nhiều niềm vui, những trải nghiệm thú vị và thật nhiều khoảnh khắc đáng nhớ. Chúc các bạn luôn thành công và hạnh phúc trong mọi điều mình làm 💐",
+msg:"Chúc toàn thể các bạn nữ lớp 10 Tin một ngày 8/3 thật vui vẻ, luôn xinh đẹp, tự tin và tràn đầy năng lượng. Mong rằng mỗi ngày của các bạn đều có thật nhiều niềm vui và những khoảnh khắc đáng nhớ 💐",
 bg:"img/bg2.png"
 }
 
@@ -154,11 +129,22 @@ let id = getParam("id");
 
 if(data[id]){
 
-document.getElementById("img").src = data[id].img;
+document.body.style.backgroundImage = `url(${data[id].bg})`;
 
+if(id === "Tập thể"){
+
+document.getElementById("normal").style.display = "none";
+document.getElementById("group").style.display = "block";
+
+document.getElementById("group-img").src = data[id].img;
+document.getElementById("group-msg").innerText = data[id].msg;
+
+}else{
+
+document.getElementById("img").src = data[id].img;
 document.getElementById("msg").innerText = data[id].msg;
 
-document.body.style.backgroundImage = `url(${data[id].bg})`;
+}
 
 }else{
 

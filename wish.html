@@ -8,34 +8,64 @@
 
 body{
     font-family: Arial;
-    text-align:center;
-    padding-top:80px;
+    margin:0;
+    height:100vh;
 
-    background-size: cover;
-    background-position: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-size:cover;
+    background-position:center;
 }
 
-.card{
+/* container chính */
 
-    background: rgba(255,255,255,0.9);
-    width:420px;
-    margin:auto;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+.container{
+
+    display:flex;
+    align-items:center;
+    gap:40px;
+
+    background:rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 
-img{
-    width:260px;
-    border-radius:12px;
-    margin-top:10px;
+/* box lời chúc */
+
+.text-box{
+
+    max-width:350px;
 }
 
-.text{
-    font-size:20px;
-    margin-top:20px;
+.text-box h1{
+
+    margin-bottom:20px;
+}
+
+.message{
+
+    font-size:18px;
     line-height:1.6;
+}
+
+/* ảnh */
+
+.avatar{
+
+    width:220px;
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid #ff6b9a;
+
 }
 
 </style>
@@ -44,57 +74,62 @@ img{
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<h1>Chúc mừng 8/3 💐</h1>
+<div class="text-box">
 
-<img id="img">
+<h1>💐 Chúc mừng 8/3</h1>
 
-<div class="text" id="msg"></div>
+<div class="message" id="msg"></div>
+
+</div>
+
+<img id="img" class="avatar">
 
 </div>
 
 <script>
 
-const data = {
+const data={
 
 "1001":{
 img:"img/lan.jpg",
-msg:"Chúc bạn Lan luôn xinh đẹp, hạnh phúc và thành công trong công việc. Chúc bạn một ngày 8/3 thật nhiều niềm vui 💐",
+msg:"Chúc Lan luôn xinh đẹp, hạnh phúc và thành công trong công việc 💐",
 bg:"img/bg1.jpg"
 },
 
 "1002":{
 img:"img/mai.jpg",
-msg:"Chúc Mai luôn tràn đầy năng lượng, luôn tỏa sáng và đạt được nhiều thành tựu trong công việc 🌸",
+msg:"Chúc Mai luôn tràn đầy năng lượng và luôn tỏa sáng 🌸",
 bg:"img/bg2.jpg"
 },
 
 "1003":{
 img:"img/linh.jpg",
-msg:"Chúc Linh luôn vui vẻ, xinh đẹp và có thật nhiều khoảnh khắc đáng nhớ trong ngày đặc biệt này 🌷",
+msg:"Chúc Linh luôn vui vẻ và có thật nhiều khoảnh khắc đáng nhớ 🌷",
 bg:"img/bg3.jpg"
 }
 
 };
 
 function getParam(name){
-let url = new URL(window.location.href);
+let url=new URL(window.location.href);
 return url.searchParams.get(name);
 }
 
-let id = getParam("id");
+let id=getParam("id");
 
 if(data[id]){
 
-document.getElementById("img").src = data[id].img;
-document.getElementById("msg").innerText = data[id].msg;
+document.getElementById("img").src=data[id].img;
 
-document.body.style.backgroundImage = `url(${data[id].bg})`;
+document.getElementById("msg").innerText=data[id].msg;
+
+document.body.style.backgroundImage=`url(${data[id].bg})`;
 
 }else{
 
-document.getElementById("msg").innerText = "MSHS không tồn tại";
+document.getElementById("msg").innerText="MSHS không tồn tại";
 
 }
 

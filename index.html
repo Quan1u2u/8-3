@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Gửi lời chúc 8/3</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    text-align:center;
+
+    background-image: url("img/bg-main.jpg");
+    background-size: cover;
+    background-position: center;
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.box{
+    background: rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input{
+    padding:12px;
+    font-size:18px;
+    width:220px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    background:#ff6b9a;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff4f87;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Hãy nhập MSHS của bạn 🌸</h2>
+
+<input id="mshs" placeholder="Nhập MSHS">
+
+<br>
+
+<button onclick="go()">Xem lời chúc</button>
+
+</div>
+
+<script>
+
+function go(){
+    let id = document.getElementById("mshs").value;
+    window.location = "wish.html?id=" + id;
+}
+
+</script>
+
+</body>
+</html>

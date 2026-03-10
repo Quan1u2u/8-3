@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Lời chúc 8/3</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    text-align:center;
+    padding-top:80px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.card{
+
+    background: rgba(255,255,255,0.9);
+    width:420px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+
+}
+
+img{
+    width:260px;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+.text{
+    font-size:20px;
+    margin-top:20px;
+    line-height:1.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Chúc mừng 8/3 💐</h1>
+
+<img id="img">
+
+<div class="text" id="msg"></div>
+
+</div>
+
+<script>
+
+const data = {
+
+"1001":{
+img:"img/lan.jpg",
+msg:"Chúc bạn Lan luôn xinh đẹp, hạnh phúc và thành công trong công việc. Chúc bạn một ngày 8/3 thật nhiều niềm vui 💐",
+bg:"img/bg1.jpg"
+},
+
+"1002":{
+img:"img/mai.jpg",
+msg:"Chúc Mai luôn tràn đầy năng lượng, luôn tỏa sáng và đạt được nhiều thành tựu trong công việc 🌸",
+bg:"img/bg2.jpg"
+},
+
+"1003":{
+img:"img/linh.jpg",
+msg:"Chúc Linh luôn vui vẻ, xinh đẹp và có thật nhiều khoảnh khắc đáng nhớ trong ngày đặc biệt này 🌷",
+bg:"img/bg3.jpg"
+}
+
+};
+
+function getParam(name){
+let url = new URL(window.location.href);
+return url.searchParams.get(name);
+}
+
+let id = getParam("id");
+
+if(data[id]){
+
+document.getElementById("img").src = data[id].img;
+document.getElementById("msg").innerText = data[id].msg;
+
+document.body.style.backgroundImage = `url(${data[id].bg})`;
+
+}else{
+
+document.getElementById("msg").innerText = "MSHS không tồn tại";
+
+}
+
+</script>
+
+</body>
+</html>

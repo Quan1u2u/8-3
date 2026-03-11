@@ -131,7 +131,11 @@ function goWish(){
 
 let user = getParam("id")
 
-window.location="wish.html?id="+user
+if(!user){
+user = "unknown"
+}
+
+window.location = "wish.html?id=Tập thể&user=" + user
 
 }
   

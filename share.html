@@ -124,12 +124,19 @@ https://tin2528.ddns.net
 
 <script>
 
+function getParam(name){
+let url = new URL(window.location.href);
+return url.searchParams.get(name);
+}
+
 function goWish(){
+
+let user = getParam("id")
 
 window.location="wish.html?id="+user
 
 }
-
+  
 </script>
 
 </body>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+body{
+font-family:Arial;
+background:#1a73e8;
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+button{
+padding:15px;
+margin:10px;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Mini Quiz</h1>
+
+<h2 id="q"></h2>
+
+<div id="answers"></div>
+
+<script>
+
+let params=new URLSearchParams(window.location.search)
+let id=params.get("id")
+
+let quiz=[
+
+{
+q:"Ngày Quốc tế Phụ nữ là ngày nào?",
+a:["8/3","20/10","1/6","2/9"],
+c:0
+},
+
+{
+q:"PTNK thuộc đại học nào?",
+a:["ĐHQG HCM","Bách Khoa","KHTN","UEH"],
+c:0
+}
+
+]
+
+let i=0
+
+function show(){
+
+let q=quiz[i]
+
+document.getElementById("q").innerText=q.q
+
+let html=""
+
+for(let j=0;j<4;j++){
+
+html+=`<button onclick="ans(${j})">${q.a[j]}</button><br>`
+
+}
+
+document.getElementById("answers").innerHTML=html
+
+}
+
+function ans(x){
+
+i++
+
+if(i<quiz.length){
+show()
+}
+else{
+window.location="wish.html?id="+id
+}
+
+}
+
+show()
+
+</script>
+
+</body>
+</html>

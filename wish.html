@@ -7,73 +7,74 @@
 <style>
 
 body{
-    font-family: Arial;
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background-size:cover;
-    background-position:center;
+font-family: Arial;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-size:cover;
+background-position:center;
 }
 
 /* layout bình thường */
 
 .container{
-    display:flex;
-    align-items:center;
-    gap:50px;
-    background:rgba(255,255,255,0.9);
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+display:flex;
+align-items:center;
+gap:50px;
+background:rgba(255,255,255,0.9);
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 .text-box{
-    max-width:400px;
+max-width:400px;
 }
 
 .message{
-    font-size:18px;
-    line-height:1.6;
+font-size:18px;
+line-height:1.6;
 }
 
 .avatar{
-    width:260px;
-    height:320px;
-    object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    transition:0.3s;
-    cursor:pointer;
+width:260px;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+transition:0.3s;
+cursor:pointer;
 }
 
 .avatar:hover{
-    transform:scale(1.05);
+transform:scale(1.05);
 }
 
-/* layout riêng cho tập thể */
+/* layout tập thể */
 
 .group-container{
-    width:700px;
-    background:rgba(255,255,255,0.9);
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
-    padding:30px;
-    text-align:center;
+width:700px;
+background:rgba(255,255,255,0.9);
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+padding:30px;
+text-align:center;
 }
 
 .group-img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    border-radius:20px;
-    margin-bottom:25px;
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:25px;
+cursor:pointer;
 }
 
 .group-msg{
-    font-size:18px;
-    line-height:1.6;
+font-size:18px;
+line-height:1.6;
 }
 
 </style>
@@ -81,20 +82,20 @@ body{
 
 <body>
 
-<!-- layout bình thường -->
+<!-- layout cá nhân -->
 <div class="container" id="normal">
-    <div class="text-box">
-        <h1>💐 Chúc mừng 8/3</h1>
-        <div class="message" id="msg"></div>
-    </div>
-    <img id="img" class="avatar" onclick="goGroup()">
+<div class="text-box">
+<h1>💐 Chúc mừng 8/3</h1>
+<div class="message" id="msg"></div>
+</div>
+<img id="img" class="avatar">
 </div>
 
 <!-- layout tập thể -->
 <div class="group-container" id="group" style="display:none">
-    <h1>🌸 Chúc mừng 8/3 - 10 Tin 🌸</h1>
-    <img id="group-img" class="group-img">
-    <div id="group-msg" class="group-msg"></div>
+<h1>🌸 Chúc mừng 8/3 - 10 Tin 🌸</h1>
+<img id="group-img" class="group-img" onclick="goUser()">
+<div id="group-msg" class="group-msg"></div>
 </div>
 
 <script>
@@ -151,6 +152,7 @@ return url.searchParams.get(name);
 }
 
 let id = getParam("id");
+let user = getParam("user");
 
 if(data[id]){
 
@@ -173,14 +175,17 @@ document.getElementById("msg").innerText = data[id].msg;
 
 }else{
 
-document.getElementById("msg").innerText = "SAI rồi";
+document.getElementById("img").src = "img/duc.jpg";
+document.getElementById("msg").innerText = "Con trai mà đòi j mài =)))";
 
 }
 
-/* thêm chức năng bấm ảnh để xem tập thể */
+function goUser(){
 
-function goGroup(){
-window.location="wish.html?id=Tập thể"
+if(user){
+window.location = "wish.html?id=" + user
+}
+
 }
 
 </script>

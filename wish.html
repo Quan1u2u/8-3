@@ -45,6 +45,7 @@ body{
     border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,0.3);
     transition:0.3s;
+    cursor:pointer;
 }
 
 .avatar:hover{
@@ -96,10 +97,6 @@ body{
     <div id="group-msg" class="group-msg"></div>
 </div>
 
-function goGroup(){
-window.location="wish.html?id=Tập thể"
-}
-    
 <script>
 
 const data = {
@@ -178,6 +175,12 @@ document.getElementById("msg").innerText = data[id].msg;
 
 document.getElementById("msg").innerText = "SAI rồi";
 
+}
+
+/* thêm chức năng bấm ảnh để xem tập thể */
+
+function goGroup(){
+window.location="wish.html?id=Tập thể"
 }
 
 </script>

@@ -40,6 +40,15 @@ box-shadow:0 10px 30px rgba(0,0,0,0.3);
 
 }
 
+/* logo */
+
+.logo{
+
+width:120px;
+margin-bottom:10px;
+
+}
+
 /* qr */
 
 .qr{
@@ -63,6 +72,26 @@ border-radius:10px;
 
 }
 
+/* nút ảnh */
+
+.enter-btn{
+
+width:200px;
+
+margin-top:25px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.enter-btn:hover{
+
+transform:scale(1.1);
+
+}
+
 </style>
 
 </head>
@@ -71,6 +100,8 @@ border-radius:10px;
 
 <div class="box">
 
+<img src="img/logo1.png" class="logo">
+
 <h2>Quét QR để truy cập</h2>
 
 <img src="img/qr.png" class="qr">
@@ -78,10 +109,24 @@ border-radius:10px;
 <p>Hoặc truy cập link:</p>
 
 <div class="link">
-https://username.github.io/project
+https://tin2528.ddns.net
 </div>
 
+<br>
+
+<img src="img/enter.png" class="enter-btn" onclick="goWish()">
+
 </div>
+
+<script>
+
+function goWish(){
+
+window.location="wish.html?id=Tập thể"
+
+}
+
+</script>
 
 </body>
 </html>

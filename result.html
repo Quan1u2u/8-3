@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+
+body{
+
+font-family:Arial;
+
+text-align:center;
+
+background:white;
+
+margin-top:150px;
+
+}
+
+.correct{
+
+font-size:60px;
+
+color:green;
+
+}
+
+.wrong{
+
+font-size:60px;
+
+color:red;
+
+}
+
+button{
+
+margin-top:50px;
+
+padding:12px 30px;
+
+font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="result"></div>
+
+<button onclick="next()">Next</button>
+
+<script>
+
+let params=new URLSearchParams(window.location.search)
+
+let id=params.get("id")
+let q=parseInt(params.get("q"))
+let ans=params.get("ans")
+let correct=params.get("correct")
+
+if(ans==correct){
+
+document.getElementById("result").innerHTML=
+"<div class='correct'>Correct</div>"
+
+}else{
+
+document.getElementById("result").innerHTML=
+"<div class='wrong'>Incorrect</div>"
+
+}
+
+function next(){
+
+q++
+
+if(q<2){
+
+window.location="game.html?id="+id+"&q="+q
+
+}else{
+
+window.location="leaderboard.html?id="+id
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,57 +1,49 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Gửi lời chúc 8/3</title>
+<title>Login</title>
 
 <style>
 
 body{
-    font-family: Arial;
-    text-align:center;
-
-    background-image: url("img/bg2.png");
-    background-size: cover;
-    background-position: center;
-
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+margin:0;
+font-family:Arial;
+background:url("img/bg_ptnk.jpg");
+background-size:cover;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
 }
 
 .box{
-    background: rgba(255,255,255,0.9);
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
 }
 
-h2{
-    margin-bottom:20px;
+.logo{
+width:120px;
+margin-bottom:20px;
 }
 
 input{
-    padding:12px;
-    font-size:18px;
-    width:220px;
-    border-radius:8px;
-    border:1px solid #ccc;
+display:block;
+margin:15px auto;
+width:300px;
+padding:12px;
+font-size:16px;
+border:none;
 }
 
 button{
-    padding:12px 25px;
-    font-size:18px;
-    margin-top:15px;
-    border:none;
-    border-radius:8px;
-    background:#ff6b9a;
-    color:white;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#ff4f87;
+margin-top:20px;
+padding:12px 30px;
+background:#1b4f9b;
+color:white;
+border:none;
+font-size:16px;
+cursor:pointer;
 }
 
 </style>
@@ -62,21 +54,79 @@ button:hover{
 
 <div class="box">
 
-<h2>Hãy nhập tên của bạn của bạn 🌸</h2>
+<img src="img/logo.png" class="logo">
 
-<input id="mshs" placeholder="VD: Minh Quân">
+<h2>TRƯỜNG PT NĂNG KHIẾU - ĐHQG HCM</h2>
 
-<br>
+<input id="user" placeholder="MSHS">
+<input id="pass" type="password" placeholder="Mật khẩu">
 
-<button onclick="go()">Click here</button>
+<button onclick="login()">Đăng nhập</button>
 
 </div>
 
 <script>
 
-function go(){
-    let id = document.getElementById("mshs").value;
-    window.location = "wish.html?id=" + id;
+let users = {
+
+"i2528_baotran":"JB2GZPQR",
+"i2528_binhpham":"6EZCNMXK",
+"i2528_duypham":"SETWBQJ6",
+"i2528_duongnguyen":"FH9VJVZV",
+"i2528_ducmai":"3PUXDJFC",
+"i2528_ductran":"FJKM6QEU",
+"i2528_hanle":"AEKF3L38",
+"i2528_hungnguyen":"Q35F45SB",
+"i2528_huytran":"7DT2HBT2",
+"i2528_hungphan":"UYWHQGTT",
+"i2528_hyduong":"QX5RQ7WG",
+"i2528_khangha":"GDR3UN5H",
+"i2528_khangvu":"2MVS3YNH",
+"i2528_khoale":"RWCXX6BV",
+"i2528_khoaphan":"FXV9P9UM",
+"i2528_khoinguyen":"BKRVM7PC",
+"i2528_kienmai":"5NLXCEFJ",
+"i2528_lamcao":"YEQT8UUA",
+"i2528_longle":"UNDNMU9J",
+"i2528_longta":"ADYTFZE2",
+"i2528_minhnguyen":"HRSTANFT",
+"i2528_minhphan":"2TSBS4N4",
+"i2528_namhoang":"GAD6KPKE",
+"i2528_ngochoang":"SHEQ4VCX",
+"i2528_nguyennguyen":"6UFJHV7T",
+"i2528_nhatnguyen":"JRA962JP",
+"i2528_phucdang":"GJJUDMYZ",
+"i2528_phucto":"48AGGWGB",
+"i2528_quanpham":"AQCZJYVN",
+"i2528_quantran":"YDYD2Q8G",
+"i2528_quynhtran":"WC56X8NT",
+"i2528_sonha":"Y7RXXVL9",
+"i2528_tailam":"K6JKPMKW",
+"i2528_thanhnguyen":"XDA9SVYB",
+"i2528_thienbui":"K6PMQR2U",
+"i2528_thienpham":"2FGKCBCQ",
+"i2528_thucao":"DKVVY9KM",
+"i2528_trietnguyen":"4V8M3XBR",
+"i2528_antran":"6TFJHV7T",
+"i2528_antri":"JKA962JP"
+
+};
+
+function login(){
+
+let user = document.getElementById("user").value
+let pass = document.getElementById("pass").value
+
+if(users[user] && users[user] === pass){
+
+window.location="game.html?id="+user
+
+}else{
+
+alert("Sai username hoặc password")
+
+}
+
 }
 
 </script>
